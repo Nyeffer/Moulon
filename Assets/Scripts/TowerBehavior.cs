@@ -6,7 +6,7 @@ public class TowerBehavior : MonoBehaviour
 {
     private bool isActive = false;
     private bool stillActive = false;
-    private int tier = 0;
+    private int tier = 1;
     private int FpsTier = 1;
     public GameObject explosion;
     public GameObject nuzzle;
@@ -17,8 +17,8 @@ public class TowerBehavior : MonoBehaviour
     void Update() {
         if(isActive) {
             if(counter >= Time.deltaTime/FpsTier) {
-                Instantiate(explosion,nuzzle.transform.position,nuzzle.transform.rotation);
                 for(int i = 0; i < tier; i++) {
+                    Instantiate(explosion,nuzzle.transform.position,nuzzle.transform.rotation);
                     BulletSpawners[i].GetComponent<BulletSpawn>().Spawn();
                 }
                 counter = 0.0f;

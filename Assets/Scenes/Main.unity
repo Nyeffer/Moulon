@@ -390,6 +390,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
+      propertyPath: BulletSpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
       propertyPath: nuzzle
       value: 
       objectReference: {fileID: 669582404}
@@ -397,12 +402,18 @@ PrefabInstance:
         type: 3}
       propertyPath: explosion
       value: 
-      objectReference: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+      objectReference: {fileID: 3204920727657687397, guid: ab815cf6dece6dd4ba70a55526a2e7d7,
+        type: 3}
     - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
       propertyPath: fps
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
+      propertyPath: BulletSpawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 288676008}
     - target: {fileID: 5905909758757606243, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
       propertyPath: m_LocalPosition.x
