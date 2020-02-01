@@ -51,11 +51,6 @@ public class RotatewithCam : MonoBehaviour
                 transformZ = 90 - transformX;
             };
            
-            //for monitoring and debugging:
-            Debug.Log("Main Camera's <color=red>Y rotation</color> is <color=red>" + facing + "</color>, and the <color=blue>Distance from Neutral rotation</color> <color=purple>(0/90/180/270)</color> is <color=blue>" + DistanceFromNeutral + "</color>.");
-           
-            // continue
-           
             finalX = (transformX * verticalAxis) + (transformZ * horizontalAxis);
            
             //if(finalX > 1){
