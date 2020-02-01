@@ -9,6 +9,8 @@ public class BulletSpawn : MonoBehaviour
 
 
 
+
+
     public void Spawn() {
         Instantiate(bullets[bTier],gameObject.transform.position, Quaternion.identity);
     }

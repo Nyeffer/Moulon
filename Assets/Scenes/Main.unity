@@ -121,51 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &288676008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 288676009}
-  - component: {fileID: 288676010}
-  m_Layer: 0
-  m_Name: BulletSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &288676009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288676008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.55, y: 16.5, z: 5.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1282848997}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &288676010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288676008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e0eb0c8431b9a49a0a82eed1c1dd91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullets:
-  - {fileID: 7171794620149626136, guid: 045ee3019b8943b49a8a042d6e228988, type: 3}
 --- !u!1 &291050899
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +134,7 @@ GameObject:
   - component: {fileID: 291050902}
   - component: {fileID: 291050901}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,13 +147,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291050899}
-  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 1.11, z: 0.96}
+  m_LocalRotation: {x: -0.018686563, y: -0, z: -0, w: 0.9998254}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0.96000004}
   m_LocalScale: {x: 0.65, y: 0.5, z: 2.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 669582405}
   m_Father: {fileID: 1282848997}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.141, y: 0, z: 0}
 --- !u!65 &291050901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -283,11 +239,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669582404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.92, z: 1.87}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0.524}
+  m_LocalScale: {x: 1.5384616, y: 1.7432919, z: 0.41213787}
   m_Children: []
-  m_Father: {fileID: 1282848997}
-  m_RootOrder: 1
+  m_Father: {fileID: 291050900}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -391,7 +347,7 @@ PrefabInstance:
     - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
       propertyPath: BulletSpawners.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
@@ -413,7 +369,27 @@ PrefabInstance:
         type: 3}
       propertyPath: BulletSpawners.Array.data[0]
       value: 
-      objectReference: {fileID: 288676008}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
+      propertyPath: BulletSpawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
+      propertyPath: BulletSpawners.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
+      propertyPath: BulletSpawners.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905909758757606240, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
+        type: 3}
+      propertyPath: BulletSpawners.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5905909758757606243, guid: a9a8e0148feb3aa4dbf1d9e13b6e48ca,
         type: 3}
       propertyPath: m_LocalPosition.x
