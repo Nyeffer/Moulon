@@ -15,26 +15,31 @@ public class TowerBehavior : MonoBehaviour
     public Text text;
     public GameObject explosion;
     public GameObject nuzzle;
-    public GameObject bullet;
+    public GameObject[] bullets;
     public float counter = 0.0f;
 
     void Update() {
         if(CanManage) {
             if(isActive) {
-                
-
-
+                if(Input.GetButtonDown("Active/Upgrade")) {
+                    Debug.Log(tier);
+                    if(tier < 2) {
+                        tier += 1;
+                    } else {
+                        tier = 2;
+                    }
+                }
             } else {
                 if(Input.GetButtonDown("Active/Upgrade")) {
-                    Debug.Log(isActive);
                     isActive = true;
+                    text.text = "Upgrade";
                 }
             }
         }
         if(isActive) {
             if(counter >= 2 / FpsTier) {
                     Instantiate(explosion,nuzzle.transform.position,nuzzle.transform.rotation);
-                    Instantiate(bullet,nuzzle.transform.position,nuzzle.transform.rotation);
+                    Instantiate(bullets[tier],nuzzle.transform.position,nuzzle.transform.rotation);
                 counter = 0.0f;
             } else {
                 counter += Time.deltaTime;
@@ -50,7 +55,6 @@ public class TowerBehavior : MonoBehaviour
                 CanManage = true;
             } else {
                 messages.SetActive(true);
-                text.text = "Upgrade";
             }
         }
     }

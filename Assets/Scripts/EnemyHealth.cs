@@ -5,14 +5,22 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int MaxHp = 100;
-    private int curHp = 0;
+    public int curHp = 0;
+
+    public bool isDeftype = true;
 
     void Start() {
         curHp = MaxHp;
     }
 
-    public void DealDamage(int dam) {
-        curHp -= dam;
+    public void DealDamage(int dam, bool myDeftype, bool Damtype) {
+        if(myDeftype == Damtype) {
+            curHp = curHp - (int)(dam * 0.5f);
+            Debug.Log("Resist");
+        } else {
+            curHp = curHp - (int)(dam * 2.0f);
+            Debug.Log("Effective");
+        }
         Debug.Log(curHp);
     }
 
@@ -20,5 +28,9 @@ public class EnemyHealth : MonoBehaviour
         if(curHp <= 0) {
             Destroy(this.gameObject);
         }
+    }
+
+    public bool GetDefType() {
+        return isDeftype;
     }
 }
