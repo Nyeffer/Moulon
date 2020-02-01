@@ -1,79 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallBehaviour : MonoBehaviour
 {
-    private float curHp = 0.0f;
-    public int MaxHp = 100;
-    private int BlockCount = 0;
+    public int BlockCount = 2;
+    public GameObject messages;
+    public Text text;
+
+
     private int currentlyBlocking = 0;
-    private int blockIndex = 0;
+    private bool canBlock = false;
 
-    private float[] counters;
-    private GameObject[] Enemies;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        curHp = MaxHp;
-        float[] counters = new float[BlockCount];
-        GameObject[] Enemies = new GameObject[BlockCount];
-    }
-
-    // Update is called once per frame
+    private bool CanManage = false;
+    
     void Update() {
-        if(blockIndex > BlockCount) {
-            blockIndex = BlockCount;
-        }
-        for(int i = 0; i < Enemies.Length; i++) {
-            if(Enemies[i] != null) {
-                if(Enemies[i].GetComponent<EnemyHealth>().GetisDead()) {
-                    Enemies[i] = null;
-                } else {
-                    if(counters[i] >= (Enemies[i].GetComponent<EnemyMovement>().GetAtkSpeed() * 5) * Time.deltaTime) {
-                        TakeDamage(Enemies[i].GetComponent<EnemyMovement>().GetDam());
-                        counters[i] = 0.0f; 
+        if(CanManage) {
+            if(canBlock) {
+                if(Input.GetButtonDown("Active/Upgrade")) {
+                    if(BlockCount < 4) {
+                        BlockCount += 1;
                     } else {
-                        counters[i] += Time.deltaTime;
+                        BlockCount = 4;
                     }
+                }
+            } else {
+                if(Input.GetButtonDown("Active/Upgrade")) {
+                    canBlock = true;
+                    text.text = "Upgrade";
                 }
             }
         }
-    }
-
-    void TakeDamage(float dam) {
-        curHp -= dam;
-    }
-
-    void Upgrade() {
-        BlockCount += 1;
-        float[] counters = new float[BlockCount];
-        GameObject[] Enemies = new GameObject[BlockCount];
+        if(currentlyBlocking > BlockCount) {
+            canBlock = false;
+            currentlyBlocking = 0;
+        }
     }
 
     void OnTriggerEnter(Collider col) {
-        if(col.gameObject.tag == "Enemy") {
-            if(Enemies[blockIndex] == null) {
-                Enemies[blockIndex] = col.gameObject;
-                blockIndex += 1;
+        if(col.gameObject.tag == "Player") {
+            if(!canBlock) {
+                messages.SetActive(true);
+                CanManage = true;
+            } else {
+                messages.SetActive(true);
             }
         }
     }
 
-    public int GetBlockCount() {
-        return BlockCount;
-    }
-
-    public int GetEnemyBlocked() {
-        return currentlyBlocking;
+    public bool GetcanBlock() {
+        return canBlock;
     }
 
     public void AddEnemy() {
         currentlyBlocking += 1;
     }
-
-
-
 }

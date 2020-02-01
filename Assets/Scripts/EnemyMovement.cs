@@ -6,11 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private int waypointIndex = 0;
     private bool isBlocked = false;
-    private float counter = 0.0f;
     public Transform[] waypoints;
     public float moveSpeed = 5.0f;
-    public float dam = 10.0f;
-    public int AtkSpeed = 1;
 
 
 
@@ -27,7 +24,6 @@ public class EnemyMovement : MonoBehaviour
 
     void Move() {
         transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].position, moveSpeed * Time.deltaTime);
-        Debug.Log(waypointIndex);
     }
 
     public int GetIndex() {
@@ -38,17 +34,11 @@ public class EnemyMovement : MonoBehaviour
         waypointIndex = newVal;
     }
 
-    public float GetDam() {
-        return dam;
-    }
-
-    public int GetAtkSpeed() {
-        return AtkSpeed;
-    }
 
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Wall") {
-            if(col.gameObject.GetComponent<WallBehaviour>().GetBlockCount() > col.gameObject.GetComponent<WallBehaviour>().GetEnemyBlocked()) {
+            if(col.gameObject.GetComponent<WallBehaviour>().GetcanBlock()) {
+                col.gameObject.GetComponent<WallBehaviour>().AddEnemy();
                 isBlocked = true;
             }
         }
