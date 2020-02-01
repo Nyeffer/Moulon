@@ -20,6 +20,9 @@ public class RotatewithCam : MonoBehaviour
     void Update() {
          yaw += speedX * Input.GetAxis("Mouse X");
          transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+         if(Input.GetButtonDown("Active/Upgrade")) {
+             Debug.Log("Hi");
+         }
     }
 
     void FixedUpdate(){
