@@ -10,5 +10,6 @@ public class DealDamage : MonoBehaviour
             col.gameObject.GetComponent<EnemyHealth>().DealDamage(damage);
             Destroy(this.gameObject);
         }
+        Destroy(this.gameObject,5.0f);
     } 
 }

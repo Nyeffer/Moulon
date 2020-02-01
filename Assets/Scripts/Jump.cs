@@ -14,6 +14,6 @@ public class Jump : MonoBehaviour
                 Debug.Log("Jump");
                 gameObject.GetComponent<Rigidbody>().AddForce(0.0f, jumpforce, 0.0f);
             }
-        }
+        } 
     }
 }
