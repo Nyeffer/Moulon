@@ -45,4 +45,19 @@ public class EnemyMovement : MonoBehaviour
     public int GetAtkSpeed() {
         return AtkSpeed;
     }
+
+    void OnTriggerEnter(Collider col) {
+        if(col.gameObject.tag == "Wall") {
+            if(col.gameObject.GetComponent<WallBehaviour>().GetBlockCount() > col.gameObject.GetComponent<WallBehaviour>().GetEnemyBlocked()) {
+                isBlocked = true;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider col) {
+        if(col.gameObject.tag == "Wall") {
+            isBlocked = false;
+        }
+
+    }
 }

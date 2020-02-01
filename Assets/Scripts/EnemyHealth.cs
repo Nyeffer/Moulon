@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int curHp = 0;
 
     public bool isDeftype = true;
+    private bool isDead = false;
 
     void Start() {
         curHp = MaxHp;
@@ -26,11 +27,16 @@ public class EnemyHealth : MonoBehaviour
 
     void Update() {
         if(curHp <= 0) {
+            isDead = true;
             Destroy(this.gameObject);
         }
     }
 
     public bool GetDefType() {
         return isDeftype;
+    }
+
+    public bool GetisDead() {
+        return isDead;
     }
 }
