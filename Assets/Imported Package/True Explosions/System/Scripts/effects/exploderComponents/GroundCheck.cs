@@ -11,6 +11,12 @@ public class GroundCheck : MonoBehaviour
         }
     }
     
+    void OnTriggerExit(Collider col) {
+        if(col.gameObject.tag == "Ground") {
+            isGrounded = false;
+        }
+    }
+    
     public bool GetGroundCheck() {
         return isGrounded;
     }
