@@ -27,15 +27,17 @@ public class EnemyManager : MonoBehaviour
         text.text = " " + enemySpawned.ToString() + " / " + Enemies.Length.ToString() + " ";
         if(started) {
             timeSince += Time.deltaTime;
-            if(timeTillSpawn[enemySpawned] < timeSince) {
-                if(enemySpawned >= (Enemies.Length - 1)) {
-                    started = false;
-                } else {
-                    EnemyActive(enemySpawned);
-                    enemySpawned += 1;
+            if(enemySpawned < timeTillSpawn.Length) {
+                if(timeTillSpawn[enemySpawned] < timeSince) {
+                    if(enemySpawned > Enemies.Length) {
+                        started = false;
+                    } else {
+                        EnemyActive(enemySpawned);
+                        enemySpawned += 1;
+                    }
                 }
             }
-       }
+        }
     }
 
     void EnemyActive(int EnemyNum) {
