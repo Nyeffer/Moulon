@@ -55,7 +55,7 @@ public class TowerBehavior : MonoBehaviour
         }
         if(isActive) {
             if(counter >= 2 / FpsTier) {
-                    Instantiate(explosion,nuzzle.transform.position,Quaternion.identity);
+                    Instantiate(explosion,nuzzle.transform.position,nuzzle.transform.rotation);
                     Instantiate(bullets[tier],nuzzle.transform.position,nuzzle.transform.rotation);
                     
                 counter = 0.0f;

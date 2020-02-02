@@ -203,6 +203,29 @@ PrefabInstance:
       propertyPath: cost
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[0]
+      value: 
+      objectReference: {fileID: 6131331011525877495, guid: 98444496be1d36044a36b855726d95c4,
+        type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[1]
+      value: 
+      objectReference: {fileID: 2646593978486420465, guid: 0475f6637ecca6841975e1155f174941,
+        type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[2]
+      value: 
+      objectReference: {fileID: 839997263988617781, guid: 5ef814aa21f11934589b1ba71e621f1a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aafc54742179a9448da13d6f49fa274, type: 3}
 --- !u!4 &26854898 stripped
@@ -441,6 +464,29 @@ PrefabInstance:
       propertyPath: cost
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[0]
+      value: 
+      objectReference: {fileID: 953263929587847102, guid: 7ac56893ccebddb46a231b61f4ba014f,
+        type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[1]
+      value: 
+      objectReference: {fileID: 7354205808810361385, guid: 67e3f688e8e7be64e820ee9a97c9eb9f,
+        type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[2]
+      value: 
+      objectReference: {fileID: 7261230136947488720, guid: 2e40fd258401e5b41bb146f6c5e4eab2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ae72022af431743b4161a91cd7458d, type: 3}
 --- !u!4 &150943466 stripped
@@ -734,6 +780,29 @@ PrefabInstance:
       propertyPath: cost
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[0]
+      value: 
+      objectReference: {fileID: 6131331011525877495, guid: 98444496be1d36044a36b855726d95c4,
+        type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[1]
+      value: 
+      objectReference: {fileID: 2646593978486420465, guid: 0475f6637ecca6841975e1155f174941,
+        type: 3}
+    - target: {fileID: 6403237974043363153, guid: 1aafc54742179a9448da13d6f49fa274,
+        type: 3}
+      propertyPath: bullets.Array.data[2]
+      value: 
+      objectReference: {fileID: 839997263988617781, guid: 5ef814aa21f11934589b1ba71e621f1a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aafc54742179a9448da13d6f49fa274, type: 3}
 --- !u!4 &309153326 stripped
@@ -1456,6 +1525,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &665223727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8948192661136582535, guid: d3678f5a5c36aa949876052c9bc84c3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8948192659983050308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &665223728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665223727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae1c396a29075c4b82c36d8c26bc84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,7 +2900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9442,7 +9529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9614,6 +9701,29 @@ PrefabInstance:
       propertyPath: cost
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[0]
+      value: 
+      objectReference: {fileID: 953263929587847102, guid: 7ac56893ccebddb46a231b61f4ba014f,
+        type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[1]
+      value: 
+      objectReference: {fileID: 7354205808810361385, guid: 67e3f688e8e7be64e820ee9a97c9eb9f,
+        type: 3}
+    - target: {fileID: 7922180519507190864, guid: 17ae72022af431743b4161a91cd7458d,
+        type: 3}
+      propertyPath: bullets.Array.data[2]
+      value: 
+      objectReference: {fileID: 7261230136947488720, guid: 2e40fd258401e5b41bb146f6c5e4eab2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ae72022af431743b4161a91cd7458d, type: 3}
 --- !u!1 &2088708878
@@ -10345,10 +10455,16 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8948192660536053651, guid: d3678f5a5c36aa949876052c9bc84c3a,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 665223728}
     - target: {fileID: 8948192660536053652, guid: d3678f5a5c36aa949876052c9bc84c3a,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8948192661136582530, guid: d3678f5a5c36aa949876052c9bc84c3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d3678f5a5c36aa949876052c9bc84c3a, type: 3}
