@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RotatewithCam : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class RotatewithCam : MonoBehaviour
     public float speedY = 2.0f;
 
     public float MoveSpeed = 2.0f;
+    public Text money;
 
     // Private Variables
 
@@ -18,9 +20,11 @@ public class RotatewithCam : MonoBehaviour
 
 
 
+
     void Update() {
-         yaw += speedX * Input.GetAxis("Mouse X");
-         transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+        money.text = currency.ToString();
+        yaw += speedX * Input.GetAxis("Mouse X");
+        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
     }
 
     void FixedUpdate(){
