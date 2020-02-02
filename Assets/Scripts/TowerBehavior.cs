@@ -10,6 +10,7 @@ public class TowerBehavior : MonoBehaviour
     private bool stillActive = false;
     private int tier = 0;
     private int FpsTier = 1;
+    private Animator anim;
 
     public GameObject messages;
     public Text text;
@@ -17,6 +18,10 @@ public class TowerBehavior : MonoBehaviour
     public GameObject nuzzle;
     public GameObject[] bullets;
     public float counter = 0.0f;
+
+    void Start() {
+        anim = GetComponent<Animator>();
+    }
 
     void Update() {
         if(CanManage) {
@@ -32,6 +37,7 @@ public class TowerBehavior : MonoBehaviour
             } else {
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     isActive = true;
+                    anim.SetBool("isActive", true);
                     text.text = "Upgrade";
                 }
             }
