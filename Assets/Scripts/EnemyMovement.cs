@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isBlocked = false;
     public Transform[] waypoints;
     public float moveSpeed = 5.0f;
+    public StateManager sm;
     private GameObject wall;
 
 
@@ -49,8 +50,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         if(col.gameObject.tag == "End") {
+            sm.Reach();
             Destroy(this.gameObject);
-
         }
     }
 

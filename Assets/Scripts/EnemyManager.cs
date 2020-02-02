@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-
+    public Text text;
     public GameObject[] Enemies;
     public float[] timeTillSpawn;
     private int enemySpawned = 0;
@@ -23,10 +24,9 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // if(started) {
-
+        text.text = " " + enemySpawned.ToString() + " / " + Enemies.Length.ToString() + " ";
+        if(started) {
             timeSince += Time.deltaTime;
-              
             if(timeTillSpawn[enemySpawned] < timeSince) {
                 if(enemySpawned >= (Enemies.Length - 1)) {
                     started = false;
@@ -35,13 +35,14 @@ public class EnemyManager : MonoBehaviour
                     enemySpawned += 1;
                 }
             }
-            
-       // }
+       }
     }
 
     void EnemyActive(int EnemyNum) {
         Enemies[EnemyNum].SetActive(true);
     }
 
-
+    public void SetStart(bool begin) {
+        started = begin;
+    }
 }
