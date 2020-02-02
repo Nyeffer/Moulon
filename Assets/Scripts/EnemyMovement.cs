@@ -42,6 +42,10 @@ public class EnemyMovement : MonoBehaviour
                 isBlocked = true;
             }
         }
+        if(col.gameObject.tag == "End") {
+            Destroy(this.gameObject);
+
+        }
     }
 
     void OnTriggerExit(Collider col) {
