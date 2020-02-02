@@ -26,7 +26,6 @@ public class WallBehaviour : MonoBehaviour
     }
     
     void Update() {
-        Debug.Log(currentlyBlocking);
         if(currentlyBlocking > 0) {
             for(int i = 0; i < currentlyBlocking; i++) {
                 if(Enemies[i] == null) {
@@ -35,8 +34,8 @@ public class WallBehaviour : MonoBehaviour
             }
         }
         if(CanManage) {
-            Debug.Log(canBlock);
             if(canBlock) {
+                text.text = " " + (cost).ToString() +  " - Upgrade";
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     if(BlockCount < 4) {
                         player.GetComponent<RotatewithCam>().Buy(cost);
@@ -50,9 +49,11 @@ public class WallBehaviour : MonoBehaviour
                     }
                 }
             } else {
+                text.text = " " + (cost).ToString() +  " - Upgrade";
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     canBlock = true;
                     anim.SetBool("isActive", true);
+                    text.text = " " + (cost).ToString() +  " - Upgrade";
                     player.GetComponent<RotatewithCam>().Buy(cost);
                     cost = (int)(cost * 2.5f);
                     text.text = " " + (cost).ToString() +  " - Upgrade";
@@ -78,6 +79,11 @@ public class WallBehaviour : MonoBehaviour
                 }
             } else {
                 messages.SetActive(true);
+                if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
+                    text.text = "Not enough Resources";
+                } else {
+                    CanManage = true;
+                }
             }
         }
     }

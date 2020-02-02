@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isDeftype = true;
     private bool isDead = false;
+    public GameObject[] Money;
 
     void Start() {
         curHp = MaxHp;
@@ -25,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
     void Update() {
         if(curHp <= 0) {
             GetComponent<EnemyMovement>().sm.GotKilled();
+            int rand = Random.Range(0, Money.Length);
+            Instantiate(Money[rand], gameObject.transform.position, Quaternion.identity);
             isDead = true;
             Destroy(this.gameObject);
         }

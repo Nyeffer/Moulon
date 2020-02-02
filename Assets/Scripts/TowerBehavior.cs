@@ -28,6 +28,7 @@ public class TowerBehavior : MonoBehaviour
     void Update() {
         if(CanManage) {
             if(isActive) {
+                text.text = " " + (cost).ToString() +  " - Upgrade";
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     Debug.Log(tier);
                     if(tier < 2) {
@@ -77,6 +78,11 @@ public class TowerBehavior : MonoBehaviour
                 }
             } else {
                 messages.SetActive(true);
+                if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
+                    text.text = "Not enough Resources";
+                } else {
+                    CanManage = true;
+                }
             }
         }
     }

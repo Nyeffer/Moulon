@@ -20,7 +20,7 @@ public class StateManager : MonoBehaviour
 
     void Update() {
         if(enemyManager.GetEnemyNum() == killCount) {
-            // Win
+            Debug.Log("Win");
         }
         if(isStarted) {
             ready.SetActive(false);
@@ -39,6 +39,7 @@ public class StateManager : MonoBehaviour
     }
 
     public void Reach() {
+        GotKilled();
         lifeCount -= 1;
     }
 
