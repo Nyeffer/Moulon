@@ -14,9 +14,15 @@ public class WallBehaviour : MonoBehaviour
     private bool canBlock = false;
 
     private bool CanManage = false;
+    private Animator anim;
+
+    void Start() {
+        anim = GetComponent<Animator>();
+    }
     
     void Update() {
         if(CanManage) {
+            Debug.Log(canBlock);
             if(canBlock) {
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     if(BlockCount < 4) {
@@ -28,12 +34,14 @@ public class WallBehaviour : MonoBehaviour
             } else {
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     canBlock = true;
+                    anim.SetBool("isActive", true);
                     text.text = "Upgrade";
                 }
             }
         }
         if(currentlyBlocking > BlockCount) {
             canBlock = false;
+            anim.SetBool("isActive", false);
             currentlyBlocking = 0;
         }
     }
@@ -47,6 +55,14 @@ public class WallBehaviour : MonoBehaviour
                 messages.SetActive(true);
             }
         }
+    }
+
+    void OnTriggerExit(Collider col) {
+        if(col.gameObject.tag == "Player") {
+            messages.SetActive(false);
+            CanManage = false;
+        }
+       
     }
 
     public bool GetcanBlock() {

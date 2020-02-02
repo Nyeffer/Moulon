@@ -27,6 +27,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPhysical: 1
   damage: 200
+--- !u!114 &9037522914619675389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898144954482059674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ede3af79914584299bbd2cbb2953e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.5
 --- !u!1001 &7898144954482159418
 PrefabInstance:
   m_ObjectHideFlags: 0

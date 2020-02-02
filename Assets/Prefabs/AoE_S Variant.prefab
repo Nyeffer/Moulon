@@ -25,7 +25,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbb18a58519fae448c769243a6b8223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPhysical: 1
   damage: 50
+--- !u!114 &8208995693276566016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013167992051135572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ede3af79914584299bbd2cbb2953e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.5
 --- !u!1001 &9013167992051167988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35,7 +49,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
       propertyPath: m_Name
-      value: AoE_S
+      value: AoE_S Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
       propertyPath: m_LocalPosition.x
