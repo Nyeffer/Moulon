@@ -11,6 +11,7 @@ public class TowerBehavior : MonoBehaviour
     private int tier = 0;
     private int FpsTier = 1;
     private Animator anim;
+    private GameObject player;
 
     public GameObject messages;
     public Text text;
@@ -30,17 +31,24 @@ public class TowerBehavior : MonoBehaviour
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     Debug.Log(tier);
                     if(tier < 2) {
+                        player.GetComponent<RotatewithCam>().Buy(cost);
+                        cost = (int)(cost * 2.5f);
+                        text.text = " " + (cost).ToString() +  " - Upgrade";
                         tier += 1;
                     } else {
+                        text.text = "MAX";
                         tier = 2;
                     }
+                    
                 }
             } else {
                 text.text = " " + cost.ToString() + " - Active";
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     isActive = true;
                     anim.SetBool("isActive", true);
-                    text.text = " " + (cost * 2.5f).ToString() +  " - Upgrade";
+                    player.GetComponent<RotatewithCam>().Buy(cost);
+                    cost = (int)(cost * 2.5f);
+                    text.text = " " + (cost).ToString() +  " - Upgrade";
                 }
             }
         }
@@ -59,6 +67,7 @@ public class TowerBehavior : MonoBehaviour
     
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Player") {
+            player = col.gameObject;
             if(!isActive) {
                 messages.SetActive(true);
                 if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
@@ -76,6 +85,7 @@ public class TowerBehavior : MonoBehaviour
 
     void OnTriggerExit(Collider col) {
         if(col.gameObject.tag == "Player") {
+            player = null;
             messages.SetActive(false);
             CanManage = false;
         }

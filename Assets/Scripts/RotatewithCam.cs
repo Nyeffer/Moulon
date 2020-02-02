@@ -22,7 +22,7 @@ public class RotatewithCam : MonoBehaviour
 
 
     void Update() {
-        money.text = currency.ToString();
+        money.text = " $ " + currency.ToString() + " ";
         yaw += speedX * Input.GetAxis("Mouse X");
         transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
     }
@@ -75,11 +75,16 @@ public class RotatewithCam : MonoBehaviour
 
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Currency") {
-            // Do currency stuff
+            currency += col.gameObject.GetComponent<Currency>().GetWorth();
+            Destroy(col.gameObject);
         }
     }
 
     public int GetCurrency() {
         return currency;
+    }
+
+    public void Buy(int cost) {
+        currency -= cost;
     }
 }

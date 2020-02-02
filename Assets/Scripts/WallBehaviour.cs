@@ -8,8 +8,10 @@ public class WallBehaviour : MonoBehaviour
     public int BlockCount = 2;
     public GameObject messages;
     public Text text;
+    public int cost = 100;
 
 
+    private GameObject player;
     private int currentlyBlocking = 0;
     private bool canBlock = false;
 
@@ -26,8 +28,12 @@ public class WallBehaviour : MonoBehaviour
             if(canBlock) {
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     if(BlockCount < 4) {
+                        player.GetComponent<RotatewithCam>().Buy(cost);
+                        cost = (int)(cost * 2.5f);
+                        text.text = " " + (cost).ToString() +  " - Upgrade";
                         BlockCount += 1;
                     } else {
+                        text.text = "MAX";
                         BlockCount = 4;
                     }
                 }
@@ -35,7 +41,9 @@ public class WallBehaviour : MonoBehaviour
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     canBlock = true;
                     anim.SetBool("isActive", true);
-                    text.text = "Upgrade";
+                    player.GetComponent<RotatewithCam>().Buy(cost);
+                    cost = (int)(cost * 2.5f);
+                    text.text = " " + (cost).ToString() +  " - Upgrade";
                 }
             }
         }
@@ -50,7 +58,11 @@ public class WallBehaviour : MonoBehaviour
         if(col.gameObject.tag == "Player") {
             if(!canBlock) {
                 messages.SetActive(true);
-                CanManage = true;
+                if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
+                    text.text = "Not enough Resources";
+                } else {
+                    CanManage = true;
+                }
             } else {
                 messages.SetActive(true);
             }
