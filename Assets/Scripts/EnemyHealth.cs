@@ -17,12 +17,9 @@ public class EnemyHealth : MonoBehaviour
     public void DealDamage(int dam, bool myDeftype, bool Damtype) {
         if(myDeftype == Damtype) {
             curHp = curHp - (int)(dam * 0.5f);
-            Debug.Log("Resist");
         } else {
             curHp = curHp - (int)(dam * 2.0f);
-            Debug.Log("Effective");
         }
-        Debug.Log(curHp);
     }
 
     void Update() {

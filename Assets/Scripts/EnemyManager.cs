@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     public float[] timeTillSpawn;
     private int enemySpawned = 0;
     private bool started = false;
+    private bool finishSpawning = false;
 
     private float timeSince = 0.0f;
     // Start is called before the first frame update
@@ -25,13 +26,12 @@ public class EnemyManager : MonoBehaviour
        // if(started) {
 
             timeSince += Time.deltaTime;
-            Debug.Log(enemySpawned);
               
             if(timeTillSpawn[enemySpawned] < timeSince) {
-                EnemyActive(enemySpawned);
                 if(enemySpawned >= (Enemies.Length - 1)) {
                     started = false;
                 } else {
+                    EnemyActive(enemySpawned);
                     enemySpawned += 1;
                 }
             }

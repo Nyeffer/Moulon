@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isBlocked = false;
     public Transform[] waypoints;
     public float moveSpeed = 5.0f;
+    private GameObject wall;
 
 
 
@@ -34,11 +35,16 @@ public class EnemyMovement : MonoBehaviour
         waypointIndex = newVal;
     }
 
+    public bool GetisBlocked() {
+        return isBlocked;
+    }
+
 
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Wall") {
+            wall = col.gameObject;
             if(col.gameObject.GetComponent<WallBehaviour>().GetcanBlock()) {
-                col.gameObject.GetComponent<WallBehaviour>().AddEnemy();
+                col.gameObject.GetComponent<WallBehaviour>().AddEnemy(1, this.gameObject);
                 isBlocked = true;
             }
         }
@@ -50,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerExit(Collider col) {
         if(col.gameObject.tag == "Wall") {
+            col.gameObject.GetComponent<WallBehaviour>().AddEnemy(-1, null);
             isBlocked = false;
         }
 

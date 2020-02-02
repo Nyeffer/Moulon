@@ -18,11 +18,22 @@ public class WallBehaviour : MonoBehaviour
     private bool CanManage = false;
     private Animator anim;
 
+    private GameObject[] Enemies;
+
     void Start() {
         anim = GetComponent<Animator>();
+        Enemies = new GameObject[BlockCount];
     }
     
     void Update() {
+        Debug.Log(currentlyBlocking);
+        if(currentlyBlocking > 0) {
+            for(int i = 0; i < currentlyBlocking; i++) {
+                if(Enemies[i] == null) {
+                    currentlyBlocking -= 1;
+                }
+            }
+        }
         if(CanManage) {
             Debug.Log(canBlock);
             if(canBlock) {
@@ -32,6 +43,7 @@ public class WallBehaviour : MonoBehaviour
                         cost = (int)(cost * 2.5f);
                         text.text = " " + (cost).ToString() +  " - Upgrade";
                         BlockCount += 1;
+                        Enemies = new GameObject[BlockCount];
                     } else {
                         text.text = "MAX";
                         BlockCount = 4;
@@ -56,6 +68,7 @@ public class WallBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Player") {
+            player = col.gameObject;
             if(!canBlock) {
                 messages.SetActive(true);
                 if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
@@ -71,17 +84,22 @@ public class WallBehaviour : MonoBehaviour
 
     void OnTriggerExit(Collider col) {
         if(col.gameObject.tag == "Player") {
+            player = null;
             messages.SetActive(false);
             CanManage = false;
         }
-       
     }
 
     public bool GetcanBlock() {
         return canBlock;
     }
 
-    public void AddEnemy() {
-        currentlyBlocking += 1;
+    public void AddEnemy(int num, GameObject enemy) {
+        for(int i = 0; i < Enemies.Length; i++) {
+            if(Enemies[i] == null) {
+                Enemies[i] = enemy;
+                currentlyBlocking += num;
+            }
+        }
     }
 }
