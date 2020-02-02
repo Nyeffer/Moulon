@@ -17,6 +17,7 @@ public class TowerBehavior : MonoBehaviour
     public GameObject explosion;
     public GameObject nuzzle;
     public GameObject[] bullets;
+    public int cost = 100;
     public float counter = 0.0f;
 
     void Start() {
@@ -35,10 +36,11 @@ public class TowerBehavior : MonoBehaviour
                     }
                 }
             } else {
+                text.text = " " + cost.ToString() + " - Active";
                 if(Input.GetButtonDown("Active/Upgrade")) {
                     isActive = true;
                     anim.SetBool("isActive", true);
-                    text.text = "Upgrade";
+                    text.text = " " + (cost * 2.5f).ToString() +  " - Upgrade";
                 }
             }
         }
@@ -59,7 +61,11 @@ public class TowerBehavior : MonoBehaviour
         if(col.gameObject.tag == "Player") {
             if(!isActive) {
                 messages.SetActive(true);
-                CanManage = true;
+                if(col.gameObject.GetComponent<RotatewithCam>().GetCurrency() < cost) {
+                    text.text = "Not enough Resources";
+                } else {
+                    CanManage = true;
+                }
             } else {
                 messages.SetActive(true);
             }

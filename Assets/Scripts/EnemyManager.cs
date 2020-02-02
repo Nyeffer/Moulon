@@ -22,20 +22,25 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(started) {
+       // if(started) {
+
             timeSince += Time.deltaTime;
-            if(timeTillSpawn[enemySpawned] >= timeSince) {
+            Debug.Log(enemySpawned);
+              
+            if(timeTillSpawn[enemySpawned] < timeSince) {
                 EnemyActive(enemySpawned);
+                if(enemySpawned >= (Enemies.Length - 1)) {
+                    started = false;
+                } else {
+                    enemySpawned += 1;
+                }
             }
-            if(enemySpawned >= Enemies.Length) {
-                started = false;
-            }
-        }
+            
+       // }
     }
 
     void EnemyActive(int EnemyNum) {
         Enemies[EnemyNum].SetActive(true);
-        enemySpawned += 1;
     }
 
 

@@ -14,15 +14,13 @@ public class RotatewithCam : MonoBehaviour
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
+    private int currency = 0;
 
 
 
     void Update() {
          yaw += speedX * Input.GetAxis("Mouse X");
          transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
-         if(Input.GetButtonDown("Active/Upgrade")) {
-             Debug.Log("Hi");
-         }
     }
 
     void FixedUpdate(){
@@ -69,5 +67,15 @@ public class RotatewithCam : MonoBehaviour
             // ^^^^ dont use, causes vector3 slowdowns or something ^^^^
            
             transform.Translate((new Vector3( finalX * 0.01f , 0f , finalZ * 0.01f ))* MoveSpeed * Time.deltaTime);
-}
+    }
+
+    void OnTriggerEnter(Collider col) {
+        if(col.gameObject.tag == "Currency") {
+            // Do currency stuff
+        }
+    }
+
+    public int GetCurrency() {
+        return currency;
+    }
 }

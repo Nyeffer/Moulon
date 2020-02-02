@@ -9,7 +9,9 @@ public class StateManager : MonoBehaviour
     private bool isStarted = false; // the state before the enemy spawn timers starts
 
     void Update() {
-
+        if(isStarted) {
+            messages.SetActive(false);
+        }
     }
 
     public void StartNow() {
