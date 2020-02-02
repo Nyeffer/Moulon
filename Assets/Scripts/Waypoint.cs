@@ -9,7 +9,6 @@ public class Waypoint : MonoBehaviour
        if(col.gameObject.tag == "Enemy") {
            index = col.gameObject.GetComponent<EnemyMovement>().GetIndex();
            col.gameObject.GetComponent<EnemyMovement>().SetIndex(index + 1);
-
        }    
    }
 }

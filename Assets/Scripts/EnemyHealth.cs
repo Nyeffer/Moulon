@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Update() {
         if(curHp <= 0) {
+            GetComponent<EnemyMovement>().sm.GotKilled();
             isDead = true;
             Destroy(this.gameObject);
         }

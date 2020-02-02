@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour
     public EnemyManager enemyManager;
     public int lifeCount = 3;
     private int maxLife;
+    private int killCount = 0;
     private bool isStarted = false; // the state before the enemy spawn timers starts
 
     void Start() {
@@ -18,6 +19,9 @@ public class StateManager : MonoBehaviour
     }
 
     void Update() {
+        if(enemyManager.GetEnemyNum() == killCount) {
+            // Win
+        }
         if(isStarted) {
             ready.SetActive(false);
             gCounters.SetActive(true);
@@ -36,6 +40,10 @@ public class StateManager : MonoBehaviour
 
     public void Reach() {
         lifeCount -= 1;
+    }
+
+    public void GotKilled() {
+        killCount += 1;
     }
 
 }

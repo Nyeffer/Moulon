@@ -45,4 +45,8 @@ public class EnemyManager : MonoBehaviour
     public void SetStart(bool begin) {
         started = begin;
     }
+
+    public int GetEnemyNum() {
+        return Enemies.Length;
+    }
 }

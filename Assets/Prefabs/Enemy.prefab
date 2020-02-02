@@ -99,7 +99,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   moveSpeed: 2
+  sm: {fileID: 0}
 --- !u!1001 &1219984374
 PrefabInstance:
   m_ObjectHideFlags: 0
