@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
@@ -19,8 +20,12 @@ public class StateManager : MonoBehaviour
     }
 
     void Update() {
+        if(lifeCount <= 0) {
+            SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+        }
         if(enemyManager.GetEnemyNum() == killCount) {
             Debug.Log("Win");
+            SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
         }
         if(isStarted) {
             ready.SetActive(false);
